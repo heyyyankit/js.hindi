@@ -2,6 +2,7 @@
 console.log("start")
 // alert("something went wrong")    // using node js, not browser
 // type
+// changed
 let isTrue = false
 console.log(isTrue)
 isTrue = !isTrue
