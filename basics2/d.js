@@ -1,4 +1,15 @@
+const user = {
+    name: "Ankit",
+    score: 99.99
+}
 
+function printName(userObj){
+    console.log(`user name is ${userObj.name}`)
+    userObj.name = "Kumar"
+}
+
+printName(user)
+printName(user) // as function is stored in heap => passed by reference
 
 
 let myobj = {
