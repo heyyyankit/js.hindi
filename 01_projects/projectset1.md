@@ -53,3 +53,19 @@ form.addEventListener('submit', function(events){
 
 });
 ```
+### Project 3 : [Display time](https://stackblitz.com/edit/dom-project-chaiaurcode-cpllzq?file=2-BMICalculator%2Findex.html,3-DigitalClock%2Fchaiaurcode.js)
+
+#### Code Javascript
+```Javascript
+const clock1 = document.querySelector('#clock')
+const clock2 = document.getElementById('clock')
+
+// setInterval(function(){}, (time in ms));
+setInterval(function(){
+  let date = new Date();
+  // clock.innerHTML = date.toLocaleTimeString();   //1
+  clock1.innerHTML = date.toLocaleTimeString() + " ho rha h";     //2
+  // clock2.innerHTML = date.toLocaleTimeString();  //3
+}, 1000);
+// all 1,2,3 works. how 1 works?
+```
