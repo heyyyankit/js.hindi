@@ -172,3 +172,99 @@ function newGame(){
   })
 }
 ```
+
+### Project 5 : [keyboard button](https://stackblitz.com/edit/dom-project-chaiaurcode-cpllzq?file=5-keyboard%2Fchaiaurcode.js,5-keyboard%2Findex.html)
+#### Code Javascript
+```Javascript
+console.log('Project 5');
+const insertId = document.getElementById('insert');
+window.addEventListener('keydown', (e) => {
+  insertId.innerHTML = `
+    <div class='color'>
+      <h1> key pressed: ${e.key}---<h1>
+      <br>
+      <h1>${e.keyCode}---<h1>
+      <h1>${e.code}<h1>
+    </div>
+  `
+})
+```
+
+### Project 6 : [color change](https://stackblitz.com/edit/dom-project-chaiaurcode-cpllzq?file=6-unlimitedColors%2Fchaiaurcode.js)
+#### Code Javascript
+```Javasctipt
+const randomColor = function(){
+  const hex = "0123456789ABCDEF";
+  let color = '#';
+  for(let i=1; i<=6; ++i){
+    color += hex[Math.floor(Math.random()*16)];
+  }
+  return color;
+};
+
+const changeColor = function(){
+  document.body.style.backgroundColor = randomColor();
+}
+
+let idChange = null;
+document.querySelector('#start').
+addEventListener('click', function(){
+  // for removing case of clicking start multiple times
+  if(idChange===null)idChange = setInterval(changeColor, 1000);
+})
+
+document.querySelector('#stop').
+addEventListener('click', function(){
+  clearInterval(idChange);
+  idChange = null;
+})
+
+```
+
+### Code HTML for start-stop
+```HTML
+<!-- start stop button -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+let cnt = 1;
+const startChanging = function(){
+    console.log(cnt++);
+}
+let idInterval;
+document.querySelector('#start').
+addEventListener('click', function(){
+    console.log('started');
+    // below
+    // writing like this means right side wala to execute hoga hi
+    // bss hmlog usko ek variable m store kr rhe
+    // agr chate h ki store krle aur execute v na ho
+    // to uske liye function bna do
+    idInterval = setInterval(startChanging, 1000);
+});
+
+const stopChanging = function(){
+    clearInterval(idInterval);
+    // clearInterval(startChangingl);
+}
+
+document.querySelector('#stop').
+addEventListener('click', function(){
+    console.log('stopped');
+    stopChanging();
+});
+
+    
+</script>
+</html>
+```
